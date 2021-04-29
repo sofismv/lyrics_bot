@@ -40,7 +40,6 @@ def send_lyrics(message):
         for hits in song_names['sections'][0]['hits']:
             song_images.append(hits['result']['header_image_url'])
         url = song_images[0]
-        print(song_names)
         bot.send_photo(message.chat.id, get(url).content)
     except:
         bot.send_message(message.chat.id, "Что-то пошло не так, попробуй снова :(")
@@ -57,7 +56,6 @@ def send_songname(message):
         song_names_lis = []
         for hits in song_names['sections'][0]['hits']:
             song_names_lis.append(hits['result']['full_title'])
-        print(song_names)
         titles = "\n".join(song_names_lis)
         bot.send_message(message.chat.id, f"Все песни, содержащие строчку {lyric}:-\n\n{titles}")
     except:
